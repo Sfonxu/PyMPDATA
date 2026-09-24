@@ -76,6 +76,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0  # https://github.com/pypa/setuptools_scm/issues/480
+      - run: pip install "ghapi<2.0.0" "fastcore<2"  # workaround for devops_tests
       - run: pip install -r tests/devops_tests/requirements.txt
       - run: pip install -e . -e ./examples
       - env:
