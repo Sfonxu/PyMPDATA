@@ -64,6 +64,7 @@ jobs:
                     --disable=duplicate-code,invalid-name,missing-module-docstring,line-too-long,missing-function-docstring,redefined-outer-name,too-many-arguments,no-member,too-many-locals,cell-var-from-loop,missing-class-docstring $(git ls-files '*.ipynb')
 
 
+
   devops:
     runs-on: ubuntu-latest
     steps:
@@ -71,6 +72,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0  # https://github.com/pypa/setuptools_scm/issues/480
+      - run: pip install "ghapi<2.0.0" "fastcore<2"  # workaround for devops_tests
       - run: pip install -r tests/devops_tests/requirements.txt
       - run: pip install -e . -e ./examples
       - env:
