@@ -62,11 +62,7 @@ jobs:
         # TODO #299
         nbqa pylint --disable=fixme,trailing-whitespace,wrong-import-position,wrong-import-order,ungrouped-imports \
                     --disable=duplicate-code,invalid-name,missing-module-docstring,line-too-long,missing-function-docstring,redefined-outer-name,too-many-arguments,no-member,too-many-locals,cell-var-from-loop,missing-class-docstring $(git ls-files '*.ipynb')
-    - if: ${{ failure() }}
-      uses: mxschmitt/action-tmate@v3
-      with:
-        limit-access-to-actor: true
-    
+
 
 
   devops:
